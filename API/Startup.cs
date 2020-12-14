@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Helpers;
 using AutoMapper;
+using Core.Interfaces;
+using Core.Models;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,7 @@ namespace API
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
+      services.AddScoped<ISchedule, Schedule>();
       services.AddDbContext<LoanFacilityContext>(x => 
         x.UseSqlite(_conf.GetConnectionString("DefaultConnection")));
 
