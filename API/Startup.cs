@@ -34,6 +34,7 @@ namespace API
     {
       services.AddControllers();
       services.AddScoped<ISchedule, Schedule>();
+      services.AddScoped<ILoanRepository, LoanRepository>();
       services.AddDbContext<LoanFacilityContext>(x => 
         x.UseSqlite(_conf.GetConnectionString("DefaultConnection")));
 
