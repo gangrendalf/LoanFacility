@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "Name": "HomeFixed",
+    "InterestPerYearId": 1,
+    "MinDurationInMonths": 60,
+    "MaxDurationInMonths": 360,
+    "MinAmount": 50000,
+    "MaxAmount": 1000000
+  },
+  {
+    "Id": 2,
+    "Name": "HomeAdjustable",
+    "InterestPerYearId": 2,
+    "MinDurationInMonths": 60,
+    "MaxDurationInMonths": 360,
+    "MinAmount": 50000,
+    "MaxAmount": 1000000
+  },
+  {
+    "Id": 3,
+    "Name": "Car",
+    "InterestPerYearId": 3,
+    "MinDurationInMonths": 6,
+    "MaxDurationInMonths": 60,
+    "MinAmount": 10000,
+    "MaxAmount": 100000
+  },
+  {
+    "Id": 4,
+    "Name": "Cash",
+    "InterestPerYearId": 4,
+    "MinDurationInMonths": 1,
+    "MaxDurationInMonths": 24,
+    "MinAmount": 1000,
+    "MaxAmount": 10000
+  }
+]

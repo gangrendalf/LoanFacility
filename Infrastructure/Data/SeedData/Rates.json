@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "Name": "homeFixed",
+    "Interest": 3.5
+  },
+  {
+    "Id": 2,
+    "Name": "homeAdjustable",
+    "Interest": 4.5
+  },
+  {
+    "Id": 3,
+    "Name": "car",
+    "Interest": 6
+  },
+  {
+    "Id": 4,
+    "Name": "cash",
+    "Interest": 8
+  }
+]
