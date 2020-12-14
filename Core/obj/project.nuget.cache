@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "knuANk8URHcM4Q/E+MxolX+whJRVQI9mDjr4oQtxhiQsGv7HPGy7HOwcTbZ3TbB2QLcz37MFif/FQYxVyTblYw==",
+  "dgSpecHash": "HrMWppN4ReWQGBJHyX50k9Tfnii7aO/AnZilkxg49MvkUQAdFebn0/aEjjCUwOX51Id3pP9tx00UJQkv3seFiA==",
   "success": true,
-  "projectFilePath": "D:\\interviews\\banqsoft\\LoanFacility\\Core\\Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "projectFilePath": "D:\\Interviews\\Banqsoft\\LoanFacility\\Core\\Core.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
