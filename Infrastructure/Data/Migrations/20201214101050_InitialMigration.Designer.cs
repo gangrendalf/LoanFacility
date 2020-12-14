@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(LoanFacilityContext))]
-    [Migration("20201214084328_Init")]
-    partial class Init
+    [Migration("20201214101050_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,13 +29,13 @@ namespace Infrastructure.Data.Migrations
                     b.Property<uint>("MaxAmount")
                         .HasColumnType("uint(6)");
 
-                    b.Property<ushort>("MaxDuration")
+                    b.Property<ushort>("MaxDurationInMonths")
                         .HasColumnType("ushort(2)");
 
                     b.Property<uint>("MinAmount")
                         .HasColumnType("uint(6)");
 
-                    b.Property<ushort>("MinDuration")
+                    b.Property<ushort>("MinDurationInMonths")
                         .HasColumnType("ushort(2)");
 
                     b.Property<string>("Name")

@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Data.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,8 +28,8 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     InterestPerYearId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MinDuration = table.Column<ushort>(type: "ushort(2)", nullable: false),
-                    MaxDuration = table.Column<ushort>(type: "ushort(2)", nullable: false),
+                    MinDurationInMonths = table.Column<ushort>(type: "ushort(2)", nullable: false),
+                    MaxDurationInMonths = table.Column<ushort>(type: "ushort(2)", nullable: false),
                     MinAmount = table.Column<uint>(type: "uint(6)", nullable: false),
                     MaxAmount = table.Column<uint>(type: "uint(6)", nullable: false)
                 },
