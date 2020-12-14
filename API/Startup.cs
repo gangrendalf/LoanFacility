@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Helpers;
+using AutoMapper;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,8 @@ namespace API
       services.AddControllers();
       services.AddDbContext<LoanFacilityContext>(x => 
         x.UseSqlite(_conf.GetConnectionString("DefaultConnection")));
+
+      services.AddAutoMapper(typeof(MappingProfiles));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

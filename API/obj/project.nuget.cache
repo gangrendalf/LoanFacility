@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2Hxz45yHvBYqlL6gcbILenkpeTUbYiR5TO79w5ovG+rVjk8UTLXrC5Rfscgp9ICcg+bTmViPx0nmdY7WTS+MGg==",
+  "dgSpecHash": "10sFNVEHxSe06+29T9s8pUe5hEUfi+AITsT34hkjJ+gHpZ/7W2eTOTG9j0uLaVaMEM9FEXVdkhQ7OBKZDDhhqg==",
   "success": true,
   "projectFilePath": "D:\\Interviews\\Banqsoft\\LoanFacility\\api\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Gangren\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\Gangren\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.1\\microsoft.data.sqlite.core.5.0.1.nupkg.sha512",
@@ -33,6 +35,7 @@
     "C:\\Users\\Gangren\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Gangren\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
     "C:\\Users\\Gangren\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
   ],

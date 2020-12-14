@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Dtos;
+using AutoMapper;
 using Core.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,12 @@ namespace API.Controllers
     public class LoanController : ControllerBase
     {
     private readonly LoanFacilityContext _context;
+    private readonly IMapper _mapper;
 
-    public LoanController(LoanFacilityContext context)
+    public LoanController(LoanFacilityContext context, IMapper mapper)
         {
       this._context = context;
+      this._mapper = mapper;
     }
 
         [HttpGet]
@@ -28,15 +31,7 @@ namespace API.Controllers
                 .Include(r => r.InterestPerYear)
                 .ToListAsync(); 
             
-            return loans.Select(loan => new LoanToReturnDto
-            {
-                Name = loan.Name,
-                InterestPerYear = loan.InterestPerYear.Interest,
-                MinDurationInMonths = loan.MinDurationInMonths,
-                MaxDurationInMonths = loan.MaxDurationInMonths,
-                MinAmount = loan.MinAmount,
-                MaxAmount = loan.MaxAmount
-            }).ToList();
+            return Ok(_mapper.Map<IReadOnlyList<Loan>, IReadOnlyList<LoanToReturnDto>>(loans));
         }
 
         [HttpGet]
@@ -47,15 +42,7 @@ namespace API.Controllers
                 .Include(r => r.InterestPerYear)
                 .FirstOrDefaultAsync(l => l.Name == loanType);
         
-            return new LoanToReturnDto
-            {
-                Name = loan.Name,
-                InterestPerYear = loan.InterestPerYear.Interest,
-                MinDurationInMonths = loan.MinDurationInMonths,
-                MaxDurationInMonths = loan.MaxDurationInMonths,
-                MinAmount = loan.MinAmount,
-                MaxAmount = loan.MaxAmount
-            };
+            return _mapper.Map<Loan, LoanToReturnDto>(loan);
         }
     }
 }
