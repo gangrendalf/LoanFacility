@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Dtos;
 using Core.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -21,20 +22,40 @@ namespace API.Controllers
     }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Loan>>> GetLoans()
+        public async Task<ActionResult<IReadOnlyList<LoanToReturnDto>>> GetLoans()
         {
-            return await _context.Loans
+            var loans = await _context.Loans
                 .Include(r => r.InterestPerYear)
-                .ToListAsync();
+                .ToListAsync(); 
+            
+            return loans.Select(loan => new LoanToReturnDto
+            {
+                Name = loan.Name,
+                InterestPerYear = loan.InterestPerYear.Interest,
+                MinDurationInMonths = loan.MinDurationInMonths,
+                MaxDurationInMonths = loan.MaxDurationInMonths,
+                MinAmount = loan.MinAmount,
+                MaxAmount = loan.MaxAmount
+            }).ToList();
         }
 
         [HttpGet]
         [Route("{loanType}")]
-        public async Task<ActionResult<Loan>> GetLoan(string loanType)
+        public async Task<ActionResult<LoanToReturnDto>> GetLoan(string loanType)
         {
-            return await _context.Loans
+            var loan = await _context.Loans
                 .Include(r => r.InterestPerYear)
                 .FirstOrDefaultAsync(l => l.Name == loanType);
+        
+            return new LoanToReturnDto
+            {
+                Name = loan.Name,
+                InterestPerYear = loan.InterestPerYear.Interest,
+                MinDurationInMonths = loan.MinDurationInMonths,
+                MaxDurationInMonths = loan.MaxDurationInMonths,
+                MinAmount = loan.MinAmount,
+                MaxAmount = loan.MaxAmount
+            };
         }
     }
 }
