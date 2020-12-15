@@ -1,4 +1,4 @@
-export interface ILoanOffer {
+export interface ILoanApplication {
   id: number,
   annualInterest: number,
   durationInMonths: number,
