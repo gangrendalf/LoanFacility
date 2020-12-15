@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoanApplicationComponent } from './components/loan-application/loan-application.component';
+import { OfferComponent } from './components/offer/offer.component';
+import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LoanApplicationComponent,
+    OfferComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    LoanFacilityRoutingModule
+  ],
+  exports : [
+    LoanApplicationComponent
   ]
 })
 export class LoanFacilityModule { }
