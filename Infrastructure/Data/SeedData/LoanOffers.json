@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "Title": "Housing Loan",
+    "SerachString": "HomeFixed",
+    "Description": "Loan for Yours dreamd home - for constructoin, second-market or from developer",
+    "ImgUrl": "images/offers/housing_640.jpg"
+  },
+  {
+    "Id": 2,
+    "Title": "Cash Loan",
+    "SerachString": "Cash",
+    "Description": "Loan for whatever You want - TV, wash mashine or summer holidays",
+    "ImgUrl": "images/offers/cash_640.jpg"
+  }
+]
