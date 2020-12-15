@@ -6,7 +6,7 @@ import { OfferComponent } from './components/offer/offer.component';
 
 const routes: Routes = [
   { path: '', component: OfferComponent },
-  { path: 'application', component: ApplicationComponent }
+  { path: ':searchString/application', component: ApplicationComponent }
 ];
 
 @NgModule({

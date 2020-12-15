@@ -2,28 +2,28 @@
   {
     "Id": 1,
     "Title": "Housing Loan",
-    "SerachString": "HomeFixed",
+    "SearchString": "HomeFixed",
     "Description": "Loan for Yours dreamd home - for constructoin, second-market or from developer",
     "ImgUrl": "assets/images/offers/housing_640.jpg"
   },
   {
     "Id": 2,
     "Title": "Housing Loan",
-    "SerachString": "HomeAdjustable",
+    "SearchString": "HomeAdjustable",
     "Description": "Loan for Yours dreamd home - for constructoin, second-market or from developer",
     "ImgUrl": "assets/images/offers/housing_640.jpg"
   },
   {
     "Id": 3,
     "Title": "Car Loan",
-    "SerachString": "Car",
+    "SearchString": "Car",
     "Description": "Loan for Your brand new car - or not! Check what You can get!",
     "ImgUrl": "assets/images/offers/car_640.png"
   },
   {
     "Id": 4,
     "Title": "Cash Loan",
-    "SerachString": "Cash",
+    "SearchString": "Cash",
     "Description": "Loan for whatever You want - TV, wash mashine or summer holidays",
     "ImgUrl": "assets/images/offers/cash_640.png"
   }

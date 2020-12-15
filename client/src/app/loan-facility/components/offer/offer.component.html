@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <p>
+    <div class="col text-center">
+      <h3>
         Choose what offer are You intrested for:
-      </p>
+      </h3>
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <ng-container *ngFor="let offer of offers">
-        <app-offer-item [offer]="offer"></app-offer-item>
-      </ng-container>
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let offer of offers">
+      <app-offer-item [offer]="offer"></app-offer-item>
     </div>
   </div>
 </div>

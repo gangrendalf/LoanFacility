@@ -4,7 +4,7 @@ namespace Core.Entities
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string SerachString { get; set; }
+        public string SearchString { get; set; }
         
         public string Description { get; set; }
         

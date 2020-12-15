@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Params, Router } from '@angular/router';
 import { ILoanOffer } from 'src/app/shared/models/loan-offer';
 
 @Component({
@@ -10,13 +11,13 @@ export class OfferItemComponent implements OnInit {
 
   @Input() offer: ILoanOffer;
 
-  constructor() { }
+  constructor(private router: Router) { 
+  }
 
   ngOnInit() {
   }
 
-  openOffer() {
-    // search for this.offer.searchString
+  logOffer() {
+    console.log(this.offer);
   }
-
 }
