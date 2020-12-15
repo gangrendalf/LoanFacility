@@ -40,6 +40,19 @@ namespace Infrastructure.Data
 
           await context.SaveChangesAsync();
         }
+
+        if (!context.LoanOffers.Any())
+        {
+          var loanOffersData = File.ReadAllText("../Infrastructure/Data/SeedData/LoanOffers.json");
+          var offers = JsonSerializer.Deserialize<List<LoanOffer>>(loanOffersData);
+
+          foreach (var item in offers)
+          {
+            context.LoanOffers.Add(item);
+          }
+
+          await context.SaveChangesAsync();
+        }
       }
       catch (Exception ex)
       {

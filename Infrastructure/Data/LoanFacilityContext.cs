@@ -13,6 +13,7 @@ namespace Infrastructure.Data
         public DbSet<Loan> Loans { get; set; }
         
         public DbSet<Rate> Rates { get; set; }
+        public DbSet<LoanOffer> LoanOffers { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
