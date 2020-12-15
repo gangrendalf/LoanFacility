@@ -18,7 +18,7 @@ import { LoanFacilityModule } from './loan-facility/loan-facility.module';
     BrowserAnimationsModule,
     CoreModule,
     HomeModule,
-    LoanFacilityModule
+    LoanFacilityModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
