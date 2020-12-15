@@ -32,5 +32,12 @@ namespace Infrastructure.Data
 
         return loans;
     }
+
+    public async Task<IReadOnlyList<LoanOffer>> GetOffers()
+    {
+      var offer = await _context.LoanOffers.ToListAsync();
+
+      return offer;
+    }
   }
 }
