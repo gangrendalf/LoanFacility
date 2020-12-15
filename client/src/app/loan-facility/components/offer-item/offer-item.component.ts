@@ -8,7 +8,7 @@ import { ILoanOffer } from 'src/app/shared/models/loan-offer';
 })
 export class OfferItemComponent implements OnInit {
 
-  @Input("offer") offer: ILoanOffer;
+  @Input() offer: ILoanOffer;
 
   constructor() { }
 

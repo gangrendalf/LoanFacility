@@ -21,6 +21,7 @@ export class LoanFacilityService {
     return this.http.get<ILoanOffer[]>(this.baseUrl + 'offers').pipe(
       map(response => {
         this.offers = response;
+        
         return response;
       })
     );
