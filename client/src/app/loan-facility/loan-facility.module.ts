@@ -4,7 +4,7 @@ import { ApplicationComponent } from './components/application/application.compo
 import { OfferComponent } from './components/offer/offer.component';
 import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
 import { OfferItemComponent } from './components/offer-item/offer-item.component';
-
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { OfferItemComponent } from './components/offer-item/offer-item.component
   ],
   imports: [
     CommonModule,
-    LoanFacilityRoutingModule
+    LoanFacilityRoutingModule,
+    HttpClientModule
   ],
   exports : [
     ApplicationComponent
