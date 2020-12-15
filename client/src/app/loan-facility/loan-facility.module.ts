@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoanApplicationComponent } from './components/loan-application/loan-application.component';
+import { ApplicationComponent } from './components/application/application.component';
 import { OfferComponent } from './components/offer/offer.component';
 import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
 
@@ -8,7 +8,7 @@ import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
 
 @NgModule({
   declarations: [
-    LoanApplicationComponent,
+    ApplicationComponent,
     OfferComponent
   ],
   imports: [
@@ -16,7 +16,7 @@ import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
     LoanFacilityRoutingModule
   ],
   exports : [
-    LoanApplicationComponent
+    ApplicationComponent
   ]
 })
 export class LoanFacilityModule { }
