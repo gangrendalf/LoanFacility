@@ -9,7 +9,7 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class LoanFacilityService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = 'https://localhost:5001/api/loan/';
   offers: ILoanOffer[] = [];
 
   constructor(private http: HttpClient ) { }
@@ -18,7 +18,7 @@ export class LoanFacilityService {
     if(this.offers.length > 0)
       return of(this.offers);
 
-    this.http.get<ILoanOffer[]>(this.baseUrl + 'offers').pipe(
+    return this.http.get<ILoanOffer[]>(this.baseUrl + 'offers').pipe(
       map(response => {
         this.offers = response;
         return response;
