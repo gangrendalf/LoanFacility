@@ -8,7 +8,7 @@
     <div class="col" *ngIf="loan">
       <app-application-form
         [loan]="loan"
-        (submit)="submitApplication()">
+        (applicationSubmit)="onSubmit($event)">
       </app-application-form>
     </div>
   </div>

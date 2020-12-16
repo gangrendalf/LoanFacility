@@ -28,8 +28,10 @@ export class ApplicationComponent implements OnInit {
     return this.loanFacilityService.getLoan(searchString)
   }
 
-  submitApplication() {
-    
+  onSubmit(application: ILoanApplication) {
+    this.loanFacilityService.getPaybackSchedule(application).subscribe(response => {
+      console.log(response);
+    })
   }
 
 

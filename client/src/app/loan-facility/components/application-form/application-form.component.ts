@@ -10,7 +10,7 @@ import { ILoanApplication } from 'src/app/shared/models/loan-application';
 })
 export class ApplicationFormComponent implements OnInit {
   @Input() loan: ILoan;
-  @Output() applicationSubmit: EventEmitter<ILoanApplication> = new EventEmitter();
+  @Output() applicationSubmit = new EventEmitter<ILoanApplication>();
 
   application: ILoanApplication;
   displayDurationInMonths: boolean;
@@ -126,7 +126,7 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.applicationSubmit.next(this.application);
+    this.applicationSubmit.emit(this.application);
   }
 
 }
