@@ -5,11 +5,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col" *ngIf="loan">
+    <div *ngIf="loan" class="col">
       <app-application-form
         [loan]="loan"
         (applicationSubmit)="onSubmit($event)">
       </app-application-form>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="schedule" class="col">
+      <app-schedule [schedule]="schedule"></app-schedule>
     </div>
   </div>
 </div>

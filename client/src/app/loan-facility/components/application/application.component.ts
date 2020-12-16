@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { ILoan } from 'src/app/shared/models/loan';
 import { ILoanApplication } from 'src/app/shared/models/loan-application';
+import { ISchedule } from 'src/app/shared/models/schedule';
 import { LoanFacilityService } from '../../services/loan-facility.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { LoanFacilityService } from '../../services/loan-facility.service';
 })
 export class ApplicationComponent implements OnInit {
   loan: ILoan;
+  schedule: ISchedule;
 
   constructor(private loanFacilityService: LoanFacilityService, private route: ActivatedRoute) { }
 
@@ -30,7 +32,7 @@ export class ApplicationComponent implements OnInit {
 
   onSubmit(application: ILoanApplication) {
     this.loanFacilityService.getPaybackSchedule(application).subscribe(response => {
-      console.log(response);
+      this.schedule = response;
     })
   }
 
