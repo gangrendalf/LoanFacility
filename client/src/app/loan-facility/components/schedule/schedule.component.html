@@ -12,7 +12,19 @@
       <tbody>
         <tr>
           <td> Amount: </td>
-          <td style="letter-spacing: 1px;"> {{ loanAmount | currency:'EUR' }} </td>
+          <td style="letter-spacing: 1px;"> {{ schedule.application.amount | currency:'EUR' }} </td>
+        </tr>
+        <tr>
+          <td> Term: </td>
+          <td style="letter-spacing: 1px;"> {{ schedule.application.durationInMonths }} months </td>
+        </tr>
+        <tr>
+          <td> Annual Intrest: </td>
+          <td style="letter-spacing: 1px;"> {{ schedule.application.annualInterest }}% </td>
+        </tr>
+        <tr>
+          <td> Payoff's </td>
+          <td style="letter-spacing: 1px;"> {{ schedule.application.payoffsPerYear == 12 ? 'monthly' : 'yearly' }} </td>
         </tr>
         <tr>
           <td> Total to pay: </td>

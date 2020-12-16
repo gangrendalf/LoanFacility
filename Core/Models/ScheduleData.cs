@@ -1,3 +1,4 @@
+using Core.Entities;
 using Core.Interfaces;
 
 namespace Core.Models
@@ -11,6 +12,7 @@ namespace Core.Models
         public float TotalInterestToPay { get; set; }
         
         public IScheduleRowData[] Schedule { get; set; }
+        public LoanApplication Application { get; set; }
         
         
     }

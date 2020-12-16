@@ -9,5 +9,7 @@ namespace Core.Interfaces
     float TotalInterestToPay { get; }
 
     IScheduleRowData[] Schedule { get; }
+    
+    LoanApplication Application { get; }
   }
 }

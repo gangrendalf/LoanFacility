@@ -35,7 +35,8 @@ namespace Core.Models
         Title = "Example Calculation",
         Schedule = scheduleRows,
         TotalToPay = totalToPay,
-        TotalInterestToPay = totalInterestToPay
+        TotalInterestToPay = totalInterestToPay,
+        Application = paybackData
       };
     }
 
