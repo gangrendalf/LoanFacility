@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { ISchedule } from 'src/app/shared/models/schedule';
 import { IScheduleRow } from 'src/app/shared/models/schedule-row';
 
@@ -7,17 +7,16 @@ import { IScheduleRow } from 'src/app/shared/models/schedule-row';
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.sass']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent implements OnChanges{
   @Input() schedule: ISchedule;
   
   rowsPerPage: number = 12;
   rowsAmount: number;
   rowsForDisplay: IScheduleRow[] = [];
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.rowsAmount = this.schedule.schedule.length;
     this.onRowsPerPageSelect();
   }

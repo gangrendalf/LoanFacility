@@ -6,7 +6,7 @@
         <div class="input-group">
           <input 
             formControlName="amount"
-            step="10000"
+            [step]="amountStep"
             type="number" 
             id="amount" 
             (change)="updateAmount($event.target.value)"
@@ -47,7 +47,7 @@
             id="amountRange"
             type="range" 
             class="form-control-range"
-            step="10000"
+            [step]="amountStep"
             [min]="loan.minAmount"
             [max]="loan.maxAmount" 
             [value]="application.amount"

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormArray, Validators, ValidationErrors } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ILoan } from 'src/app/shared/models/loan';
 import { ILoanApplication } from 'src/app/shared/models/loan-application';
 
@@ -13,10 +13,13 @@ export class ApplicationFormComponent implements OnInit {
   @Output() applicationSubmit = new EventEmitter<ILoanApplication>();
 
   application: ILoanApplication;
+
   displayDurationInMonths: boolean;
   minDurationInGivenUnits: number;
   maxDurationInGivenUnits: number;
   durationInGivenUnits: number;
+
+  amountStep: number;
 
   applicationForm: FormGroup;
 
@@ -24,6 +27,8 @@ export class ApplicationFormComponent implements OnInit {
 
   ngOnInit() {
     this.initializeApplicationWithDefaults(this.loan);
+
+    this.setAmountStep();
 
     this.initializeFrom();
   }
@@ -50,11 +55,20 @@ export class ApplicationFormComponent implements OnInit {
     } else if(units == "Years") {
       this.displayDurationInMonths = false;
 
-      this.minDurationInGivenUnits = this.loan.minDurationInMonths/12;
-      this.maxDurationInGivenUnits = this.loan.maxDurationInMonths/12;
+      this.minDurationInGivenUnits = Math.ceil(this.loan.minDurationInMonths/12);
+      this.maxDurationInGivenUnits = Math.ceil(this.loan.maxDurationInMonths/12);
 
-      this.durationInGivenUnits = this.application.durationInMonths/12;
+      if( Math.round(this.application.durationInMonths / 12) >= 1 ) {
+        this.durationInGivenUnits = Math.round(this.application.durationInMonths/12);
+      } else {
+        this.durationInGivenUnits = 1;
+      }
+      this.application.durationInMonths = this.durationInGivenUnits * 12;
     }
+  }
+
+  setAmountStep(){
+    this.amountStep = this.loan.minAmount % 10000 == 0 ? 10000 : 1000;
   }
 
   initializeFrom() {
