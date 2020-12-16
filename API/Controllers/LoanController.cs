@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using API.Dtos;
 using AutoMapper;
-using Core.Models;
 using Core.Entities;
-using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using Core.Interfaces;
 
 namespace API.Controllers
@@ -47,17 +43,27 @@ namespace API.Controllers
 
     [HttpGet]
     [Route("{loanType}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<LoanToReturnDto>> GetLoan(string loanType)
     {
       var loan = await _loanRepo.GetLoanAsync(loanType);
+
+      if(loan == null)
+        return NotFound();
 
       return _mapper.Map<Loan, LoanToReturnDto>(loan);
     }
 
     [HttpGet]
     [Route("{loanType}/paybackplan")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public ActionResult<IScheduleData> GetPaybackSchedule([FromQuery] LoanApplication data, string loanType)
     {
+      if(data == null | data.Amount == 0 | data.AnnualInterest == 0 | data.DurationInMonths == 0 | data.PayoffsPerYear == 0)
+        return BadRequest();
+
       var scheduleData = _paybackSchedule.CreateSchedule(data);
 
       return Ok(scheduleData);
