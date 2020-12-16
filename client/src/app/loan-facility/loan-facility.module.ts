@@ -5,18 +5,23 @@ import { OfferComponent } from './components/offer/offer.component';
 import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
 import { OfferItemComponent } from './components/offer-item/offer-item.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicationFormComponent } from './components/application-form/application-form.component';
 
 
 @NgModule({
   declarations: [
     ApplicationComponent,
     OfferComponent,
-    OfferItemComponent
+    OfferItemComponent,
+    ApplicationFormComponent
   ],
   imports: [
     CommonModule,
     LoanFacilityRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports : [
     ApplicationComponent

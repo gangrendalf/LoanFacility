@@ -1,0 +1,190 @@
+<form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+      <label for="amount">Amount</label>
+      <div>
+        <div class="input-group">
+          <input 
+            formControlName="amount"
+            step="10000"
+            type="number" 
+            id="amount" 
+            (change)="updateAmount($event.target.value)"
+            class="form-control form-control-lg">
+          <div class="input-group-append">
+            <div class="input-group-text"> 
+              <i class="fa fa-euro px-2"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+      <label for="term">Term</label>
+      <div>
+        <div class="input-group">
+          <input 
+            formControlName="term"
+            type="number" 
+            id="term" 
+            [value]="durationInGivenUnits"
+            (change)="updateDuration($event.target.value)"
+            class="form-control form-control-lg">
+          <div class="input-group-append">
+            <div class="input-group-text" style="width: 81px;"> 
+              {{ displayDurationInMonths ? 'Months' : 'Years' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row d-none d-md-flex">
+    <div class="col-6 d-flex flex-column">
+        <div class="row px-5">
+          <input 
+            id="amountRange"
+            type="range" 
+            class="form-control-range"
+            step="10000"
+            [min]="loan.minAmount"
+            [max]="loan.maxAmount" 
+            [value]="application.amount"
+            (change)="updateAmount($event.target.value)"
+            >
+        </div>
+        <div class="row px-3 d-flex justify-content-between">
+          <span>{{ loan.minAmount | currency:'EUR':'symbol':'.0' }}</span>
+          <span>{{ loan.maxAmount | currency:'EUR':'symbol':'.0' }}</span>
+        </div>
+    </div>
+    <div class="col-6 d-flex flex-column">
+      <div class="row px-5">
+        <input 
+          id="termRange"
+          type="range" 
+          class="form-control-range"
+          [min]="minDurationInGivenUnits"
+          [max]="maxDurationInGivenUnits" 
+          [value]="durationInGivenUnits"
+          (change)="updateDuration($event.target.value)"
+          >
+      </div>
+      <div class="row px-4 d-flex justify-content-between">
+        <span>
+          {{ minDurationInGivenUnits }}
+        </span>
+        <span>{{ maxDurationInGivenUnits }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 col-md-6">
+      <!-- empty column -->
+    </div>
+    <div class="col-12 col-md-6 d-flex flex-row justify-content-center">
+      <button 
+        type="button"
+        (click)="updateDurationForGivenUnits('Years')"
+        [class.active]="!displayDurationInMonths" 
+        class="btn btn-outline-secondary"
+        >Years
+      </button>
+      <span class="d-inline-block mx-2"> / </span>
+      <button 
+        type="button" 
+        (click)="updateDurationForGivenUnits('Months')"
+        [class.active]="displayDurationInMonths" 
+        class="btn btn-outline-secondary"
+        >Months
+      </button>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 d-flex justify-content-center">
+      <p>
+        Payback plan
+      </p>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-6 d-flex justify-content-end">
+      <button 
+        type="button" 
+        [class.active]="true"
+        class="btn btn-outline-secondary" 
+        >Fixed
+      </button>
+    </div>
+    <div class="col-6 d-flex justify-content-start">
+      <button 
+        disabled
+        type="button"
+        [class.active]="false" 
+        class="btn btn-outline-secondary"
+        >Adjustable
+      </button>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="col-6 d-flex justify-content-end">
+      <label for="annualInterest">
+        Annual interest:
+      </label>
+    </div>
+    <div class="col-6 d-flex justify-content-start">
+      <input 
+        formControlName="annualInterest"
+        readonly
+        type="text" 
+        id="annualInterest" 
+        class="form-control" 
+        style="max-width: 60px;"
+        [value]="application.annualInterest">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-6 d-flex justify-content-end">
+      <label for="payoffsPerYear">
+        Payoff's per year
+      </label>
+    </div>
+    <div class="col-6 d-flex justify-content-start">
+      <input 
+        formControlName="payoffsPerYear"
+        readonly
+        type="text" 
+        id="payoffsPerYear" 
+        class="form-control" 
+        style="max-width: 60px;"
+        [value]="application.payoffsPerYear">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 d-flex justify-content-center">
+      <button
+        [disabled]="applicationForm.get('amount').errors || applicationForm.get('term').errors" 
+        type="submit" 
+        class="btn btn-primary">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="text-danger">
+  <p *ngIf="applicationForm.get('amount').errors">
+    {{ applicationForm.get('amount').errors | json }}
+  </p>
+  <p *ngIf="applicationForm.get('term').errors">
+    {{ applicationForm.get('term').errors | json }}
+  </p>
+</div>
