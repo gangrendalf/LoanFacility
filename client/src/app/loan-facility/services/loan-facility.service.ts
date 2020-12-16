@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { ILoanOffer } from 'src/app/shared/models/loan-offer';
 import { map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { ILoan } from 'src/app/shared/models/loan';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,10 @@ export class LoanFacilityService {
       })
     );
   }
+
+  getLoan(searchString: string) {
+    return this.http.get<ILoan>(this.baseUrl + searchString);
+  }
+
+
 }

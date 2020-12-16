@@ -3,6 +3,6 @@ export interface ILoan {
   interestPerYear: number,
   minDurationInMonths: number,
   maxDurationInMonths: number,
-  minAmountInMonths: number,
-  maxAmountInMonths: number
+  minAmount: number,
+  maxAmount: number
 }
