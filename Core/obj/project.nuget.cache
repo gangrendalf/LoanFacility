@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HrMWppN4ReWQGBJHyX50k9Tfnii7aO/AnZilkxg49MvkUQAdFebn0/aEjjCUwOX51Id3pP9tx00UJQkv3seFiA==",
+  "dgSpecHash": "Jvwf3OXRk4QllzJ1I5T4Tyi/Q+kVRAlAU/4/cgSNfbKL6xk4dWC+8aEtaRGwOIpKWdgSdtqui/g0qkKtb/mFvg==",
   "success": true,
   "projectFilePath": "D:\\Interviews\\Banqsoft\\LoanFacility\\Core\\Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Gangren\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

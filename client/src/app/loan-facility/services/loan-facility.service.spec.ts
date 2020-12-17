@@ -34,7 +34,7 @@ fdescribe('LoanFacilityService', () => {
   const testSchedule: ISchedule = {
     application: testApplication,
     title: 'test title 1',
-    schedule: null,
+    scheduleTable: null,
     totalInterestToPay: 123,
     totalToPay: 123
   }

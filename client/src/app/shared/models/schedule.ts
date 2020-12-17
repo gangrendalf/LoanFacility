@@ -5,7 +5,7 @@ export interface ISchedule {
   title: string,
   totalToPay: number,
   totalInterestToPay: number,
-  schedule: IScheduleRow[],
+  scheduleTable: IScheduleRow[],
   application: ILoanApplication
   
 }

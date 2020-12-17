@@ -17,20 +17,20 @@ export class ScheduleComponent implements OnChanges{
   constructor() { }
 
   ngOnChanges() {
-    this.rowsAmount = this.schedule.schedule.length;
+    this.rowsAmount = this.schedule.scheduleTable.length;
     this.onRowsPerPageSelect();
   }
 
   onPageChange(event) {
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
-    this.rowsForDisplay = this.schedule.schedule.slice(startItem, endItem);
+    this.rowsForDisplay = this.schedule.scheduleTable.slice(startItem, endItem);
   }
 
   onRowsPerPageSelect() {
     const startItem = 0;
     const endItem = this.rowsPerPage;
-    this.rowsForDisplay = this.schedule.schedule.slice(startItem, endItem);
+    this.rowsForDisplay = this.schedule.scheduleTable.slice(startItem, endItem);
   }
 
   printSchedule() {

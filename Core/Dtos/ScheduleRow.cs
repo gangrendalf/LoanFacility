@@ -1,8 +1,8 @@
 using Core.Interfaces;
 
-namespace Core.Models
+namespace Core.Dtos
 {
-    public class ScheduleRowData : IScheduleRowData
+    public class ScheduleRow
     {
         public int MonthNo { get; set; }    
         public string Date { get; set; }

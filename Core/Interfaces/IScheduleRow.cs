@@ -1,6 +1,6 @@
 namespace Core.Interfaces
 {
-    public interface IScheduleRowData
+    public interface IScheduleRow
     {
         int MonthNo { get; }    
         string Date { get; }

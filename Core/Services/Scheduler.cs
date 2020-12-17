@@ -1,18 +1,19 @@
 using System;
 using System.Linq;
+using Core.Dtos;
 using Core.Entities;
 using Core.Interfaces;
 
-namespace Core.Models
+namespace Core.Services
 {
-  public class Schedule : ISchedule
+  public class Scheduler : IScheduler
   {
     private int _amount;
     private int _durationInMonths;
     private float _annualInterest;
     private int _payoffsPerYear;
     private double _monthlyPayment;
-    public IScheduleData CreateSchedule(LoanApplication paybackData)
+    public Schedule CreateSchedule(LoanApplication paybackData)
     {
       _amount = paybackData.Amount;
       _durationInMonths = paybackData.DurationInMonths;
@@ -21,7 +22,7 @@ namespace Core.Models
 
       _monthlyPayment = GetMonthlyPayment();
 
-      ScheduleRowData[] scheduleRows = GetScheduleRows();
+      ScheduleRow[] scheduleRows = GetScheduleRows();
 
       float totalToPay = (float)(scheduleRows
         .Select(row => row.Payment)
@@ -30,10 +31,11 @@ namespace Core.Models
         .Select(row => row.Interest)
         .Aggregate(0.0, (total, next) => total += next));
 
-      return new ScheduleData
+
+      return new Schedule
       {
         Title = "Example Calculation",
-        Schedule = scheduleRows,
+        ScheduleTable = scheduleRows,
         TotalToPay = totalToPay,
         TotalInterestToPay = totalInterestToPay,
         Application = paybackData
@@ -46,9 +48,9 @@ namespace Core.Models
       return (_amount * Math.Pow(factor, _durationInMonths) * (factor - 1)) / (Math.Pow(factor, _durationInMonths) - 1);
     }
 
-    private ScheduleRowData[] GetScheduleRows()
+    private ScheduleRow[] GetScheduleRows()
     {
-      ScheduleRowData[] schedule = new ScheduleRowData[_durationInMonths];
+      ScheduleRow[] schedule = new ScheduleRow[_durationInMonths];
       
 
       for (int i = 0; i < _durationInMonths; i++)
@@ -59,7 +61,7 @@ namespace Core.Models
         double interest = GetInterestForGivenBalance(previousBalance);
         string dateString = GetPayoffDateForGivenMonthNo(monthNo);
         
-        schedule[i] = new ScheduleRowData{
+        schedule[i] = new ScheduleRow{
           MonthNo = monthNo,
           Payment = _monthlyPayment,
           Interest = interest,

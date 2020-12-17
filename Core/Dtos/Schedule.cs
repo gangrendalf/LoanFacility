@@ -1,9 +1,8 @@
 using Core.Entities;
-using Core.Interfaces;
 
-namespace Core.Models
+namespace Core.Dtos
 {
-    public class ScheduleData : IScheduleData
+    public class Schedule
     {
         public string Title { get; set; }
         
@@ -11,7 +10,7 @@ namespace Core.Models
         
         public float TotalInterestToPay { get; set; }
         
-        public IScheduleRowData[] Schedule { get; set; }
+        public ScheduleRow[] ScheduleTable { get; set; }
         public LoanApplication Application { get; set; }
         
         
