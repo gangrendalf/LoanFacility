@@ -4,7 +4,6 @@ import { ApplicationComponent } from './components/application/application.compo
 import { OfferComponent } from './components/offer/offer.component';
 import { LoanFacilityRoutingModule } from './loan-facility-routing.module';
 import { OfferItemComponent } from './components/offer-item/offer-item.component';
-import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicationFormComponent } from './components/application-form/application-form.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
@@ -22,7 +21,6 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   imports: [
     CommonModule,
     LoanFacilityRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     PaginationModule.forRoot(),

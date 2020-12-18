@@ -4,6 +4,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ServerErrorComponent } from './components/server-error/server-error.component';
 
 
 
@@ -11,7 +13,7 @@ import { AboutComponent } from './components/about/about.component';
   declarations: [
     NavBarComponent, 
     FooterComponent, 
-    AboutComponent
+    AboutComponent, NotFoundComponent, ServerErrorComponent
   ],
   imports: [
     CommonModule,
