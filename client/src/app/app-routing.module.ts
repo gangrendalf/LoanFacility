@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
-  { path: 'loan', loadChildren: () => import('./loan-facility/loan-facility.module').then(mod => mod.LoanFacilityModule) }
+  { path: 'loan', loadChildren: () => import('./loan-facility/loan-facility.module').then(mod => mod.LoanFacilityModule) },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];
 
 @NgModule({
