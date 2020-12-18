@@ -78,7 +78,6 @@
         <span>{{ maxDurationInGivenUnits }}</span>
       </div>
     </div>
-
   </div>
 
   <div class="form-row">
@@ -101,6 +100,33 @@
         class="btn btn-outline-secondary"
         >Months
       </button>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col">
+      <div *ngIf="applicationForm.get('amount').errors as error" class="text-danger">
+        <p *ngIf="error.required">
+          Field <i>amount</i> is required!
+        </p>
+        <p *ngIf="error.min">
+          <i>Minimum amount</i> of this loan is: {{ error.min.min | currency:"EUR"}}
+        </p>
+        <p *ngIf="error.max">
+          <i>Maximum amount</i> of this loan is: {{ error.max.max | currency:"EUR"}}
+        </p>
+      </div>
+      <div *ngIf="applicationForm.get('term').errors as error" class="text-danger">
+        <p *ngIf="error.required">
+          Field <i>term</i> is required!
+        </p>
+        <p *ngIf="error.min">
+          <i>Minimum term</i> of this loan is: {{ minDurationInGivenUnits }} {{ displayDurationInMonths ? 'months' : 'years' }}
+        </p>
+        <p *ngIf="error.max">
+          <i>Maximum term</i> of this loan is: {{ maxDurationInGivenUnits }} {{ displayDurationInMonths ? 'months' : 'years' }}
+        </p>
+      </div>
     </div>
   </div>
 
@@ -179,12 +205,3 @@
     </div>
   </div>
 </form>
-
-<div class="text-danger">
-  <p *ngIf="applicationForm.get('amount').errors">
-    {{ applicationForm.get('amount').errors | json }}
-  </p>
-  <p *ngIf="applicationForm.get('term').errors">
-    {{ applicationForm.get('term').errors | json }}
-  </p>
-</div>

@@ -94,8 +94,8 @@ export class ApplicationFormComponent implements OnInit {
         Validators.min(1),
         Validators.max(12),
         Validators.required
-      ]], 
-    });
+      ]] 
+    }, { updateOn: 'blur' });
 
     this.applicationForm.get('amount')
       .setValue(this.application.amount);
